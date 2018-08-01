@@ -176,7 +176,7 @@ public class Ringer {
 
         boolean dndMode = !isRingerAudible;
         torchMode = Settings.System.getIntForUser(mContext.getContentResolver(),
-                 Settings.System.FLASHLIGHT_ON_CALL, 0, UserHandle.USER_CURRENT);
+                 Settings.System.FLASHLIGHT_ON_CALL, 1, UserHandle.USER_CURRENT);
 
         boolean shouldFlash = (torchMode == 1 && !dndMode) ||
                               (torchMode == 2 && dndMode)  ||
@@ -221,7 +221,7 @@ public class Ringer {
         stopRinging();
 
         if (Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.VIBRATE_ON_CALLWAITING, 0, UserHandle.USER_CURRENT) == 1) {
+                Settings.System.VIBRATE_ON_CALLWAITING, 1, UserHandle.USER_CURRENT) == 1) {
             vibrate(200, 300, 500);
         }
 
